@@ -14,15 +14,7 @@ exports.handler = async ({ body, headers }) => {
     // if (stripeEvent.type === 'price.updated') {
 
     axios.defaults.headers.common['Circle-Token'] = process.env.CIRCLE_API_KEY;
-    axios.post('https://circleci.com/api/v1.1/project/github/gatorpazz/consider-herbs/tree/prods', 
-    {build_parameters: 
-      {
-        CONTENTFUL_ENTITY_ID: "{ /payload/sys/id }",
-        CONTENTFUL_ENTITY_TYPE: "{ /payload/sys/type }",
-        CONTENTFUL_SPACE_ID: "{ /payload/sys/space/sys/id }",
-        CONTENTFUL_ENVIRONMENT_ID: "{ /payload/sys/environment/sys/id }"
-      }
-    }
+    axios.post('https://circleci.com/api/v2/project/github/gatorpazz/consider-herbs/pipeline'
     );
     
     // }
