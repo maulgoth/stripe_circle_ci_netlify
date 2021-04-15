@@ -21,6 +21,6 @@ exports.handler = async ({ body, headers }) => {
   }
   return {
     statusCode: 200,
-    body: JSON.stringify({ received: true }),
+    body: JSON.stringify({ received: true, temp: "YESWEGOTIT" }),
   };
 };
