@@ -11,13 +11,6 @@ exports.handler = async ({ body, headers }) => {
         body: JSON.stringify(response)
       };
     });
-    
-    // }
-
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ received: true }),
-    };
   } catch (err) {
     console.log(`Stripe webhook failed with ${err}`);
 
@@ -26,4 +19,8 @@ exports.handler = async ({ body, headers }) => {
       body: `Webhook Error: ${err.message}`,
     };
   }
+  return {
+    statusCode: 200,
+    body: JSON.stringify({ received: true }),
+  };
 };
