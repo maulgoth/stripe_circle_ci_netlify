@@ -4,18 +4,18 @@ const axios = require('axios');
 exports.handler = async ({ body, headers }) => {
   try {
     // check the webhook to make sure it’s valid
-    const stripeEvent = stripe.webhooks.constructEvent(
-      body,
-      headers['stripe-signature'],
-      process.env.STRIPE_WEBHOOK_SECRET
-    );
+    // const stripeEvent = stripe.webhooks.constructEvent(
+    //   body,
+    //   headers['stripe-signature'],
+    //   process.env.STRIPE_WEBHOOK_SECRET
+    // );
 
     // only do stuff if this is a successful Stripe Checkout purchase
-    if (stripeEvent.type === 'price.updated') {
+    // if (stripeEvent.type === 'price.updated') {
 
-      axios.defaults.headers.common['Circle-Token'] = process.env.CIRCLE_API_KEY;
-      axios.post('https://circleci.com/api/v1.1/project/github/gatorpazz/consider-herbs/tree/prods');
-    }
+    axios.defaults.headers.common['Circle-Token'] = process.env.CIRCLE_API_KEY;
+    axios.post('https://circleci.com/api/v1.1/project/github/gatorpazz/consider-herbs/tree/prods');
+    // }
 
     return {
       statusCode: 200,
